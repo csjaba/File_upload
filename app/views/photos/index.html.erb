@@ -1,0 +1,18 @@
+<h1>Gallery Photos:	<%= @gallery.name %></h1>
+<br />
+
+<p>This is Photos (Index Action) page. To view/edit a photo, hover over and click on the thumbnail.<p>
+
+<br />
+<%= link_to 'Back', gallery_path(@gallery) %> |
+<%= link_to 'Upload Photos', new_gallery_photo_path(@gallery) %>
+<br />
+<div id="gallery">
+  <ul id="grid">
+    <% @photos.each do |pic| %>
+     <li><%= link_to image_tag(pic.photo_file.url(:thumb).to_s), gallery_photo_path(@gallery,pic) %></li>
+    <% end %>
+  </ul>
+</div>
+
+    

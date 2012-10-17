@@ -1,0 +1,12 @@
+Sample App: CarrierWave Multiple File Upload
+
+This app demonstrates an example of how to use the CarrierWave gem to facilitate multiple file uploads. This is a Rails 3.2.3 application that uses Ruby 1.9.3 and was developed on Mac Lion OS X.
+
+CarrierWave is easy to set up and by default allows just one file to be uploaded at a time. To upload more than one file at a time, I've made use of the Jquery-File-Upload plugin. This plugin expects a json response and uses AJAX to update the page with the upload results. To facilitate the creation of a json response, I use the Jbuilder gem.
+
+The example here has two models, Gallery and Photos. Gallery has many Photos. Photo belongs to Gallery. Since these two models are nested, I took the nested resources approach. 
+
+Since we're uploading image files, we'll want to use a gem called MiniMagick which is a Ruby wrapper for ImageMagick. Use HomeBrew to install ImageMagick: brew install imagemagick.
+
+One side note regarding Carrierwave: when photos are deleted, the corresponding file folders become empty, but are not removed. This is a Carrierwave "feature", and work-arounds can be found online. Paperclip, another popular upload gem cleans up its folders nicely and is easy to use as well.
+

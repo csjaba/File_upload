@@ -1,0 +1,34 @@
+<h1>Galleries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<br>
+<% @galleries.each do |gallery| %>
+  <tr>
+    <td><strong><%= link_to gallery.name, gallery_path(gallery.id) %><strong></td>
+    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+    <td><%= link_to 'Destroy', gallery, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+</br>
+
+<%= link_to 'Add a New Gallery', new_gallery_path %>
+ 
+<% if no_gallery? then %>
+	<section>
+		</br>
+		<p>This is the Index page for Gallery. There are no Galleries at the moment. Click 'Add a New Gallery' to add one. Once you add a gallery or two, click on the gallery name to navigate to the Gallery/Show action. From there you may navigate to the Photo Upload feature.<p>
+	</section>
+<% else %>
+	<section>
+		</br>
+		<p>Click on a Gallery Name to view/upload photos.<p>
+	</section>
+<% end %>

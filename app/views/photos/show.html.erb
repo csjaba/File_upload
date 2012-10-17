@@ -1,0 +1,10 @@
+<h1>Gallery:	<%= @gallery.name %>, Photo: <%= @photo.photo_file %></h1>
+</br>
+<p>This is the Photos (Show) page. The path and file name are included in the title. In this example, the photo display size is preset: I set the "medium" version of photos to a height of 540 pixels in photo_file_uploader.rb. It makes for an easier demo. There are many other options available, including dynamic resizing. <p>
+<br>
+<p id="notice"><%= notice %></p>
+
+<%= link_to image_tag(@photo.photo_file.url(:medium).to_s), gallery_photo_path(@gallery,@photo) %>
+</br>
+<%= link_to "Delete Photo", gallery_photo_path(@gallery, @photo), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %> |
+<%= link_to 'Back', gallery_photos_path %>
